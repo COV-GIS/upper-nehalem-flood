@@ -1,0 +1,33 @@
+---
+# jekyll
+layout: default
+permalink: /
+
+# page
+menu: false
+---
+<div class="page-home">
+  <div class="row">
+    {%- for link in site.data.site.links -%}
+    <div class="feature col-md-6 col-lg-4">
+      <h1><a href="{{ link.permalink }}"><i class="{{ link.icon }}"></i></a></h1>
+      <h3><a href="{{ link.permalink }}">{{ link.title }}</a></h3>
+      <p>{{ link.description }}</p>
+    </div>
+    {%- endfor -%}
+  </div>
+
+  <h4 class="partners text-center text-muted">
+    Partners
+  </h4>
+
+  <div class="row">
+    {%- for partner in site.data.site.partners -%}
+    <div class="col-sm-6 col-md-4 text-center">
+      <a href="{{ partner.href }}" target="_blank">
+        <img src="{{ partner.image }}" alt="{{ partner.title }}" title="{{ partner.title }}">
+      </a>
+    </div>
+    {%- endfor -%}
+  </div>
+</div>

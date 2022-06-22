@@ -1,0 +1,75 @@
+title: Upper Nehalem Flood
+
+# email: your-email@example.com
+
+description: >-
+  Protecting life and property from flood hazards in the Upper Nehalem valley.
+
+baseurl: ""
+
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+permalink: pretty
+
+highlighter: rouge
+
+markdown: kramdown
+
+github:
+  repository_url: https://github.com/UpperNehalemFlood/upper-nehalem-flood
+  repository_name: upper-nehalem-flood
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  hard_wrap: false
+  auto_ids: false
+  auto_id_stripping: true
+
+timezone: America/Los_Angeles
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# http://jch.penibelst.de/
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  ignore:
+    envs: []
+  blanklines: false
+  profile: false
+  startings: [html, head, body]
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /images/social-card.png
+
+include:
+  - _headers
+  - _redirects
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

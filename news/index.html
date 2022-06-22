@@ -1,0 +1,55 @@
+---
+# jekyll
+layout: default
+permalink: /news/
+
+# page
+title: News
+description: Flood news and updates from the Upper Nehalem valley.
+menu: false
+---
+<div class="row">
+  <div class="col-md-8 col-lg-9">
+    <h2>News</h2>
+    <div class="row">
+      {%- for post in site.categories.news limit:25 -%}
+      <div class="col-sm-12 col-md-6">
+        <h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
+        <h6 class="mb-2 text-muted">{{ post.author }} on {{ post.date | date: "%b %-d, %Y" }}</h6>
+        <p class="text-justify">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+      </div>
+      {%- endfor -%}
+    </div>
+  </div>
+  <div class="col-md-4 col-lg-3">
+    <h5>Subscribe</h5>
+    <div id="mc_embed_signup" class="newsletter-signup">
+      <form
+        action="https://vernonia-or.us12.list-manage.com/subscribe/post?u=669d9e1a8d192c1c34da62759&amp;id=3b97ea9c8f"
+        method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate pure-form"
+        target="_blank" rel="noopener" novalidate>
+        <fieldset>
+          <div id="mc_embed_signup_scroll">
+            <div class="form-group">
+              <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+              <input type="email" value="" name="EMAIL" class="form-control required email" id="mce-EMAIL"
+                style="max-width:300px;">
+            </div>
+            <div class="form-group">
+              <label for="mce-NAME">Name <span class="asterisk">*</span></label>
+              <input type="text" value="" name="NAME" class="form-control required" id="mce-NAME"
+                style="max-width:300px;">
+            </div>
+            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+              <input type="text" name="b_669d9e1a8d192c1c34da62759_3b97ea9c8f" tabindex="-1" value="">
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
+                class="btn btn-primary">
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
