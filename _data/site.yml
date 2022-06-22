@@ -1,0 +1,55 @@
+links:
+  - title: Flood
+    description: Current river levels, weather, advisories and warnings.
+    permalink: /flood/
+    icon: fa-solid fa-water
+
+  - title: Be Prepared
+    description: Protect yourself and your property from flood hazards.
+    permalink: /be-prepared/
+    icon: fa-solid fa-house-flood-water
+
+  - title: Resources
+    description: Local, state and federal flood information and resources.
+    permalink: /resources/
+    icon: fa-solid fa-circle-info
+
+  - title: News
+    description: Flood news and updates from the Upper Nehalem valley.
+    permalink: /news/
+    icon: fa-solid fa-newspaper
+
+  - title: Map
+    description: Upper Nehalem interactive flood map.
+    permalink: /map/
+    icon: fa-solid fa-location-dot
+  
+  - title: Contribute
+    description: Help mitigate flood hazards in the Upper Nehalem.
+    permalink: /contribute/
+    icon: fa-solid fa-users
+
+partners:
+  - title: City of Vernonia
+    image: /images/partners/Vernonia_City_Banner.png
+    href: https://www.vernonia-or.gov
+
+  - title: City of Vernonia
+    image: /images/partners/Vernonia_City_Banner.png
+    href: https://www.vernonia-or.gov
+
+  - title: City of Vernonia
+    image: /images/partners/Vernonia_City_Banner.png
+    href: https://www.vernonia-or.gov
+
+  - title: City of Vernonia
+    image: /images/partners/Vernonia_City_Banner.png
+    href: https://www.vernonia-or.gov
+
+  - title: City of Vernonia
+    image: /images/partners/Vernonia_City_Banner.png
+    href: https://www.vernonia-or.gov
+
+  - title: City of Vernonia
+    image: /images/partners/Vernonia_City_Banner.png
+    href: https://www.vernonia-or.gov
