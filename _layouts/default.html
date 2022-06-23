@@ -11,10 +11,6 @@
   <!-- seo tags including native title and description -->
   {%- seo -%}
 
-  <!-- font awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
-    integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
-
   <!-- site theme and styles -->
   <link rel="stylesheet" href="/css/main.css">
 </head>
@@ -36,8 +32,8 @@
     <div class="px-3 py-2 navbar-dark bg-dark text-white">
       <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
-            <img class="me-2" height="50" src="/images/logo.svg">
+          <a href="/" class="title d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+            Upper Nehalem Flood
           </a>
           <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
             {%- for links in site.data.site.links -%}
@@ -59,7 +55,7 @@
   {%- endif -%}
 
   <!-- content -->
-  <main class="container content" data-bs-spy="scroll" data-bs-target="#page-menu" data-bs-smooth-scroll="true">
+  <main class="container" data-bs-spy="scroll" data-bs-target="#page-menu" data-bs-smooth-scroll="true">
     {%- if page.menu == false -%}
     {{ content }}
     {%- else -%}
@@ -68,9 +64,7 @@
         {{ content }}
       </div>
       <div class="col-md-3 d-none d-md-block">
-        <div class="sticky">
-          <div id="page-menu" class="list-group list-group-flush"></div>
-        </div>
+        <div id="page-menu" class="sticky list-group list-group-flush" tabindex="0"></div>
       </div>
     </div>
     {%- endif -%}
@@ -92,11 +86,6 @@
         <li class="ms-3">
           <a href="#">
             <i class="fa-brands fa-twitter"></i>
-          </a>
-        </li>
-        <li class="ms-3">
-          <a href="#">
-            <i class="fa-brands fa-instagram"></i>
           </a>
         </li>
         <li class="ms-3">
