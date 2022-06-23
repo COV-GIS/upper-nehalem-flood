@@ -1,11 +1,19 @@
 ---
 # front matter
 ---
+/////////////////////////////////////////////////////////
+// import font awesome
+/////////////////////////////////////////////////////////
+@import url("https://use.fontawesome.com/releases/v6.1.1/css/all.css");
 
+/////////////////////////////////////////////////////////
 // import theme
+/////////////////////////////////////////////////////////
 @import "/css/bootstrap.min.css";
 
-// helpers
+/////////////////////////////////////////////////////////
+// text helpers
+/////////////////////////////////////////////////////////
 .text-justify {
   text-align: justify;
 }
@@ -14,7 +22,27 @@
   font-size: 0.875rem;
 }
 
+/////////////////////////////////////////////////////////
+// make lists cooler
+/////////////////////////////////////////////////////////
+.fa-ul {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5rem;
+
+  .fa-li {
+    margin-top: 0.3125rem;
+    padding-right: 0.5rem;
+    font-size: 0.625rem;
+    color: var(--bs-secondary);
+  }
+}
+
+/*** LAYOUT PAGE ELEMENTS ******************************/
+
+/////////////////////////////////////////////////////////
 // alert marquee
+/////////////////////////////////////////////////////////
 .marquee-container {
   width: 100%;
   height: 50px;
@@ -28,18 +56,26 @@
   }
 }
 
-// header
+/////////////////////////////////////////////////////////
+// page header
+/////////////////////////////////////////////////////////
 header {
+  .title {
+    font-size: 1.5rem;
+  }
+
   .nav li {
     text-align: center;
   }
-  
+
   .nav-link {
     padding: 0.5rem 1.5rem;
   }
 }
 
-// footer
+/////////////////////////////////////////////////////////
+// page footer
+/////////////////////////////////////////////////////////
 footer {
   .fa-heart {
     color: var(--bs-red);
@@ -54,15 +90,26 @@ footer {
   }
 }
 
-// sticky list groups
-// or anything else that needs to stick
+/////////////////////////////////////////////////////////
+// page menus
+/////////////////////////////////////////////////////////
 .sticky {
   position: -webkit-sticky;
   position: sticky;
   top: 1rem;
 }
 
-// 404
+.list-group-item.active {
+  background-color: var(--bs-light);
+  border-color: var(--bs-light);
+  color: var(--bs-gray-900);
+}
+
+/*** PAGES *********************************************/
+
+/////////////////////////////////////////////////////////
+// 404 page
+/////////////////////////////////////////////////////////
 .not-found {
   display: flex;
   flex-flow: column;
@@ -75,7 +122,9 @@ footer {
   }
 }
 
-// page lead on home
+/////////////////////////////////////////////////////////
+// home page
+/////////////////////////////////////////////////////////
 .page-lead {
   display: flex;
   flex-flow: column;
@@ -88,21 +137,22 @@ footer {
   text-shadow: #000 1px 1px 4px, #000 1px 1px 8px, #000 1px 1px 12px, #000 1px 1px 16px, #000 1px 1px 20px;
 
   .lead {
-    // max-width: 900px;
     text-align: center;
   }
 }
 
-// home page
 .page-home {
   .feature {
     padding: 2rem 1rem;
 
-    h1, h3 {
+    h1,
+    h3 {
       margin: 0 0 1rem;
     }
 
-    h1, h3, p {
+    h1,
+    h3,
+    p {
       text-align: center;
     }
 
@@ -129,7 +179,9 @@ footer {
   }
 }
 
+/////////////////////////////////////////////////////////
 // flood page
+/////////////////////////////////////////////////////////
 .action-stage {
   color: var(--bs-warning);
 }
@@ -138,7 +190,9 @@ footer {
   color: var(--bs-danger);
 }
 
-// contribute map
+/////////////////////////////////////////////////////////
+// contribute page map
+/////////////////////////////////////////////////////////
 #contribute-location-map {
   width: 100%;
   height: 400px;

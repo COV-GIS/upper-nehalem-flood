@@ -1,31 +1,22 @@
-(function (document, anchors) {
+(function (document, anchors, put) {
   'use strict';
 
-  // create menus
-  const pageMenu = document.getElementById('page-menu');
+  let text;
 
-  function generatePageMenu(els) {
-    let text;
-    let href;
-    for (let i = 0; i < els.length; i++) {
-      text = els[i].textContent;
-      href = els[i].querySelector('.anchorjs-link').getAttribute('href');
-      if (els[i].tagName === 'H3') {
-        put(pageMenu, 'a.list-group-item.list-group-item-action[href=' + href + ']', text);
-      }
-    }
-  }
+  let href;
 
-  // add anchors to normal pages
-  function addAnchors() {
-    anchors.add('.container.content h3');
-    if (pageMenu) {
-      generatePageMenu(anchors.elements);
-    }
+  const menu = document.getElementById('page-menu');
+
+  anchors.add('main.container h4');
+
+  const elements = anchors.elements;
+
+  if (!elements || !menu) return;
+
+  for (let i = 0; i < elements.length; i++) {
+    text = elements[i].textContent;
+    href = elements[i].querySelector('.anchorjs-link').getAttribute('href');
+    elements[i].id = href.replace('#', '');
+    put(menu, 'a.list-group-item.list-group-item-action[href=' + href + ']', text);
   }
-  if (anchors) {
-    addAnchors();
-  } else {
-    setTimeout(addAnchors, 100);
-  }
-}(this.document, this.anchors));
+}(this.document, this.anchors, this.put));
