@@ -54,11 +54,45 @@
   </header>
   {%- endif -%}
 
-  <!-- content -->
-  <main class="container" data-bs-spy="scroll" data-bs-target="#page-menu" data-bs-smooth-scroll="true">
-    {%- if page.menu == false -%}
+  {%- if page.category and page.category == "news" -%}
+  <!-- news article -->
+  <main class="container">
+    <div class="row">
+      <div class="col-md-8 col-lg-9">
+        <h2>{{ page.title }}</h2>
+        <p class="text-muted mb-1">Posted by {{ page.author }} on {{ page.date | date: "%b %-d, %Y" }}</p>
+        <p class="text-muted mb-1">This article will take {{ content | reading_time | pluralize: "minute" }} to read</p>
+        <div class="share-buttons mb-1">
+          <a href="#">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="#">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+          <a href="#">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+        {{content}}
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <h4>Latest news</h4>
+        {% for post in site.categories.news limit:5 %}
+        <h5 class="mb-1"><a href="{{ post.url }}">{{ post.title }}</a></h5>
+        <p class="text-muted">{{ post.author }} on {{ post.date | date: "%b %-d, %Y" }}</p>
+        {% endfor %}
+        {%- include subscribe.html -%}
+      </div>
+    </div>
+  </main>
+  {%- elsif page.menu == false -%}
+  <!-- page no menu -->
+  <main class="container">
     {{ content }}
-    {%- else -%}
+  </main>
+  {%- elsif page.menu == true -%}
+  <!-- page menu -->
+  <main class="container" data-bs-spy="scroll" data-bs-target="#page-menu" data-bs-smooth-scroll="true">
     <div class="row">
       <div class="col-sm-12 col-md-9">
         {{ content }}
@@ -67,8 +101,8 @@
         <div id="page-menu" class="sticky list-group list-group-flush" tabindex="0"></div>
       </div>
     </div>
-    {%- endif -%}
   </main>
+  {%- endif -%}
 
   <!-- footer -->
   <footer class="my-5">
