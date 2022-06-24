@@ -1,0 +1,23 @@
+<h4>Subscribe</h4>
+<p class="mb-1">Sign up for Upper Nehalem Flood news and alerts.</p>
+<form id="subscribe-from">
+  <fieldset>
+    <div class="mb-3">
+      <label>Name</label>
+      <input type="text" name="NAME" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label>Email Address</label>
+      <input type="email" name="EMAIL" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Subscribe</button>
+  </fieldset>
+</form>
+<script>
+  // do nothing until subscription service setup
+  document
+    .getElementById('subscribe-from')
+    .addEventListener('submit', event => {
+      event.preventDefault();
+    });
+</script>

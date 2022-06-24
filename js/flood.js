@@ -42,3 +42,10 @@ document.querySelector('button[data-gage-refresh]')
     gageInfo('RCBO3');
     gageInfo('FSSO3');
   });
+
+// auto refresh
+setInterval(() => {
+  gageInfo('VENO3');
+  gageInfo('RCBO3');
+  gageInfo('FSSO3');
+}, 300000);

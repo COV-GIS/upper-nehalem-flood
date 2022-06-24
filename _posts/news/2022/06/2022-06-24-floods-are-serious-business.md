@@ -3,9 +3,7 @@ layout: default
 category: news
 title: Floods Are Serious Business
 author: The 2007 Flood
-date: 2022-06-16
-
-menu: false
+date: 2022-06-24
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec arcu dolor. Nullam molestie odio ut ipsum commodo malesuada. Nulla fermentum arcu a augue bibendum, id tincidunt odio lobortis. Morbi commodo nisi quis lorem posuere, at suscipit ex rhoncus. Suspendisse potenti. Aliquam scelerisque lectus eget sapien commodo bibendum. Etiam nulla velit, suscipit a lacinia vel, aliquam id dui. Ut viverra egestas justo fringilla malesuada. Etiam nunc lorem, aliquam sit amet ex id, malesuada auctor augue. Vivamus eget tincidunt felis. Donec posuere nisi nec purus sagittis hendrerit.
 
