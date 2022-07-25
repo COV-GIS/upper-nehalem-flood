@@ -1,33 +1,34 @@
 ---
 # jekyll
-layout: default
-permalink: /
+layout: page
 
-# page
-menu: false
+# number of posts to show
+post_limit: 2
 ---
-<div class="page-home">
-  <div class="row">
-    {%- for link in site.data.site.links -%}
-    <div class="feature col-md-6 col-lg-4">
-      <h1><a href="{{ link.permalink }}"><i class="{{ link.icon }}"></i></a></h1>
-      <h3><a href="{{ link.permalink }}">{{ link.title }}</a></h3>
-      <p>{{ link.description }}</p>
-    </div>
-    {%- endfor -%}
-  </div>
+<!-- latest news -->
+<h2 class="mb-4">Latest News</h2>
 
-  <h4 class="partners text-center text-muted">
-    Partners
-  </h4>
+{%- include posts.html -%}
 
-  <div class="row">
-    {%- for partner in site.data.site.partners -%}
-    <div class="col-sm-6 col-md-4 text-center">
-      <a href="{{ partner.href }}" target="_blank">
-        <img src="{{ partner.image }}" alt="{{ partner.title }}" title="{{ partner.title }}">
-      </a>
-    </div>
-    {%- endfor -%}
+<div class="my-5 border-top"></div>
+
+<!-- be prepared -->
+<h2>Be Prepared</h2>
+
+<p class="mt-4">Ignorance, complacency and lack of preparation are the biggest threats to life and property from flooding. Being aware of the flood risks in the Upper Nehalem Valley, and preparing yourself, family and community is easy and may very well save you much regret.</p>
+
+<h4><a href="/be-prepared/">Learn How You Can Be Prepared</a></h4>
+
+<div class="my-5 border-top"></div>
+
+<!-- partners -->
+<div class="home-lead">Partners</div>
+<div class="row home-partners">
+  {%- for partner in site.data.site.partners -%}
+  <div class="col-sm-6 col-md-4 text-center">
+    <a href="{{ partner.href }}" target="_blank">
+      <img src="{{ partner.image }}" alt="{{ partner.title }}" title="{{ partner.title }}">
+    </a>
   </div>
+  {%- endfor -%}
 </div>

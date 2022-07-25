@@ -1,0 +1,100 @@
+---
+# jekyll
+layout: page
+permalink: /high-water-records/new/
+
+# page
+title: Add High Water Record
+description: Add a high water record.
+
+# include arcgis css
+arcgis: true
+
+# no banner on this page
+banner: false
+
+# no footer
+footer: false
+---
+<main class="container page-add-high-water-record">
+  <div class="inner-container">
+
+    <form data-step="1" autocomplete="off">
+      <h3 class="mb-3">Add High Water Record</h3>
+      <p class="mb-3">This application with walk you through the process of submitting a high water record for a location with the Upper Nehalem basin. The information collected will be analyzed with other datasets to improve flood modelling in the Upper Nehalem Basin.</p>
+      <p class="mb-3">Only one record for a specific location and flood event may be submitted at a time. If you have multiple records to submit, you will have an opportunity to summit additional records after completion.</p>
+      <button type="sumbit" class="btn btn-primary">Get Started</button>
+    </form>
+    
+    <form hidden data-step="2" autocomplete="off">
+      <h3 class="mb-3">Your Information</h3>
+      <p class="mb-3">We will never share or make this information public. We may contact you via email to follow up or get more information about your submittal.</p>
+      <div class="mb-3">
+        <label for="name-input" class="form-label">Name</label>
+        <input type="text" name="name" class="form-control" id="name-input" required value="bob">
+      </div>
+      <div class="mb-3">
+        <label for="email-input" class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" id="email-input" required value="b@b.com">
+      </div>
+      <button type="sumbit" class="btn btn-primary">Next</button>
+    </form>
+
+    <form hidden data-step="3" autocomplete="off">
+      <h3 class="mb-3">Location Information</h3>
+      <p class="mb-3">Navigate to the location in the map below and click to choose a location. Please be as precise as possible. If the location of the high water mark is a structure, place the point on a flat surface, such as a driveway, adjacent to the structure.</p>
+      <input type="hidden" name="location" class="form-control" id="location-input">
+      <div id="map"></div>
+      <div class="mb-3">
+        <label for="address-input" class="form-label">Address</label>
+        <input type="text" name="address" class="form-control" id="address-input">
+        <small class="form-text text-muted">Optional</small>
+      </div>
+      <button type="sumbit" class="btn btn-primary">Next</button>
+    </form>
+
+    <form hidden data-step="4" autocomplete="off">
+      <h3 class="mb-3">Flood Information</h3>
+      <div class="mb-3">
+        <label for="event-select" class="form-label">Event Date</label>
+        <select name="event" class="form-control" id="event-select">
+          <option value="12-15-2015">December 15, 2015</option>
+          <option value="11-7-2007">November 7, 2007</option>
+          <option value="2-3-1996">February 3, 1996</option>
+          <option value="0">Another date</option>
+        </select>
+        <small class="form-text text-muted">Note any unlisted event date in the <em>Notes</em> on the next screen.</small>
+      </div>
+      <div class="mb-3">
+        <label for="height-input" class="form-label">Height</label>
+        <input type="number" step="1" min="0" name="height" value="0" class="form-control" id="height-input" required>
+        <small class="form-text text-muted">Height of water at the location in inches. Enter <em>0</em> to indicate extent of water at the location.</small>
+      </div>
+      <button type="sumbit" class="btn btn-primary">Next</button>
+    </form>
+
+    <form hidden data-step="5" autocomplete="off">
+      <h3 class="mb-3">Additional Information</h3>
+      <div class="mb-3">
+        <label for="notes-input" class="form-label">Notes</label>
+        <textarea type="text" name="notes" class="form-control" id="notes-input" maxlength="500"></textarea>
+        <small class="form-text text-muted">Any details specifically concerning the high water event at the specified location.</small>
+      </div>
+      <div class="mb-3">
+        <label for="photo-input" class="form-label">Photo</label>
+        <input type="file" accept="image/jpeg" name="photo" class="form-control" id="photo-input">
+        <small class="form-text text-muted">Only include a photo which shows a high water mark or reference mark at the location.</small>
+      </div>
+      <button type="sumbit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <form hidden data-step="6" autocomplete="off">
+      <h3 class="mb-3">Adding New High Water Record</h3>
+      <div class="fa-3x" style="margin: 7rem 0; text-align: center; color: var(--bs-primary);">
+        <i class="fas fa-spinner fa-pulse"></i>
+      </div>
+    </form>
+  </div>
+</main>
+
+<script type="module" src="/js/add-high-water-record.js"></script>

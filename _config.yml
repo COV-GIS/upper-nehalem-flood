@@ -3,11 +3,11 @@ title: Upper Nehalem Flood
 # email: your-email@example.com
 
 description: >-
-  Protecting life and property from flood hazards in the Upper Nehalem valley.
+  A partnership of local government and volunteers committed to flood hazard education and preparedness in the Upper Nehalem Valley.
 
 baseurl: ""
 
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://regal-quokka-55d1b3.netlify.app" # the base hostname & protocol for your site, e.g. http://example.com
 
 permalink: pretty
 
@@ -45,10 +45,15 @@ compress_html:
   startings: [html, head, body]
 
 defaults:
+  # - scope:
+  #     path: ""
+  #   values:
+  #     image: /images/social-card.png
   - scope:
       path: ""
+      type: posts
     values:
-      image: /images/social-card.png
+      is_post: true
 
 include:
   - _headers

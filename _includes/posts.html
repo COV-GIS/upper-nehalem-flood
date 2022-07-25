@@ -1,0 +1,26 @@
+<div class="posts">
+  {% for post in site.posts limit: page.post_limit %}
+  {%- if post.image -%}
+  <div class="row">
+    <div class="col-md-3 d-none d-md-block">
+      <div class="post-image" {% if post.image %}style="background-image: url({{ post.image }});"{% endif %}>
+        <a href="{{ post.url }}"></a>
+      </div>
+    </div>
+    <div class="post-content col-md-9">
+      <a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
+      <div class="text-justify">{{ post.excerpt | strip_html }}</div>
+      <div><a href="{{ post.url }}">Read more</a></div>
+      <div class="text-muted">{{ post.date | date: "%B %-d, %Y" }}</div>
+    </div>
+  </div>
+  {%- else -%}
+  <div class="post-content">
+    <a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
+    <div class="text-justify">{{ post.excerpt | strip_html }}</div>
+    <div><a href="{{ post.url }}">Read more</a></div>
+    <div class="text-muted">{{ post.date | date: "%B %-d, %Y" }}</div>
+  </div>
+  {%- endif -%}
+  {% endfor %}
+</div>

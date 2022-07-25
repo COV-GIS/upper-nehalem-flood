@@ -1,0 +1,17 @@
+<div class="banner-image mb-5" {% if page.banner_image %}style="background-image: url({{ page.banner_image }});"{% endif %}>
+  <div class="banner-image-content">
+    {%- if page.is_post -%}
+    <h1>{{ page.title }}</h1>
+    <div class="lead">{{ page.date | date: "%B %-d, %Y" }}</div>
+    {%- else -%}
+    <h1>
+      {%- if page.title -%}{{ page.title }}{%- else -%}{{ site.title }}{%- endif -%}
+    </h1>
+    {%- if page.url == '/' -%}
+    <div class="lead">{{ site.description }}</div>
+    {%- elsif page.description -%}
+    <div class="lead">{{ page.description }}</div>
+    {%- endif -%}
+    {%- endif -%}
+  </div>
+</div>

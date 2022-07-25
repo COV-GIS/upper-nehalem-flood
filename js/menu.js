@@ -1,22 +1,28 @@
-(function (document, anchors, put) {
+(function (document, put, bootstrap) {
   'use strict';
-
-  let text;
-
-  let href;
 
   const menu = document.getElementById('page-menu');
 
-  anchors.add('main.container h4');
+  document.querySelectorAll('main.container h2')
+    .forEach(ele => {
+      const text = ele.textContent;
 
-  const elements = anchors.elements;
+      const id = text.toLowerCase().replace(' ', '-');
 
-  if (!elements || !menu) return;
+      ele.setAttribute('id', id);
 
-  for (let i = 0; i < elements.length; i++) {
-    text = elements[i].textContent;
-    href = elements[i].querySelector('.anchorjs-link').getAttribute('href');
-    elements[i].id = href.replace('#', '');
-    put(menu, 'a.list-group-item.list-group-item-action[href=' + href + ']', text);
-  }
-}(this.document, this.anchors, this.put));
+      const anchor = put(menu, `a.list-group-item.list-group-item-action[href=#${id}]`, text);
+
+      // this overrides bs scroll spy behavior to not set url hash
+      // and correctly scrolls to the the proper element
+      anchor.addEventListener('click', event => {
+        event.preventDefault();
+
+        document.getElementById(id).scrollIntoView(true);
+      });
+    });
+
+  new bootstrap.ScrollSpy(document.body, {
+    target: menu,
+  });
+}(this.document, this.put, this.bootstrap));
