@@ -5,186 +5,33 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-
-  <!-- seo tags including native title and description -->
-  {%- seo -%}
-
-  <!-- site theme and styles -->
-  <link rel="stylesheet" href="/css/main.css">
-</head>
+<!-- head -->
+{%- include head.html -%}
 
 <body>
-  <!-- alert marquee -->
-  <div class="marquee-container" hidden="">
-    <div class="alert-marquee"></div>
-  </div>
+  <!-- header -->
+  {%- include header.html -%}
 
-  <!-- home page lead or nav header -->
-  {%- if page.permalink == "/" -%}
-  <header class="page-lead parallax-window" data-parallax="scroll" data-image-src="/images/flood.jpg">
-    <h1>{{ site.title }}</h1>
-    <div class="lead">{{ site.description }}</div>
-  </header>
-  {%- else -%}
-  <header class="mb-5">
-    <div class="px-3 py-2 navbar-dark bg-dark text-white">
-      <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <a href="/" class="title d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
-            Upper Nehalem Flood
-          </a>
-          <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-            {%- for links in site.data.site.links -%}
-            <li>
-              <a href="{{ links.permalink }}"
-                class="nav-link{% if page.url == links.permalink %} text-primary{% else %} text-white{% endif %}">
-                <span class="d-block mx-auto mb-1">
-                  <i class="{{ links.icon }}"></i>
-                </span>
-                {{ links.title }}
-              </a>
-            </li>
-            {%- endfor -%}
-          </ul>
-        </div>
-      </div>
-    </div>
-  </header>
+  <!-- banner image/title -->
+  {%- if page.banner != false -%}
+  {%- include banner.html -%}
   {%- endif -%}
 
-  {%- if page.category and page.category == "news" -%}
-  <!-- news article -->
-  <main class="container">
-    <div class="row">
-      <div class="col-md-8 col-lg-9">
-        <h2>{{ page.title }}</h2>
-        <p class="text-muted mb-1">Posted by {{ page.author }} on {{ page.date | date: "%b %-d, %Y" }}</p>
-        <p class="text-muted mb-1">This article will take {{ content | reading_time | pluralize: "minute" }} to read</p>
-        <div class="share-buttons mb-1">
-          <a href="#">
-            <i class="fa-brands fa-facebook"></i>
-          </a>
-          <a href="#">
-            <i class="fa-brands fa-twitter"></i>
-          </a>
-          <a href="#">
-            <i class="fa-solid fa-envelope"></i>
-          </a>
-        </div>
-        {{content}}
-      </div>
-      <div class="col-md-4 col-lg-3">
-        <h4>Latest news</h4>
-        {% for post in site.categories.news limit:5 %}
-        <h5 class="mb-1"><a href="{{ post.url }}">{{ post.title }}</a></h5>
-        <p class="text-muted">{{ post.author }} on {{ post.date | date: "%b %-d, %Y" }}</p>
-        {% endfor %}
-        {%- include subscribe.html -%}
-      </div>
-    </div>
-  </main>
-  {%- elsif page.menu == false -%}
-  <!-- page no menu -->
-  <main class="container">
-    {{ content }}
-  </main>
-  {%- elsif page.menu == true -%}
-  <!-- page menu -->
-  <main class="container" data-bs-spy="scroll" data-bs-target="#page-menu" data-bs-smooth-scroll="true">
-    <div class="row">
-      <div class="col-sm-12 col-md-9">
-        {{ content }}
-      </div>
-      <div class="col-md-3 d-none d-md-block">
-        <div id="page-menu" class="sticky list-group list-group-flush" tabindex="0"></div>
-      </div>
-    </div>
-  </main>
-  {%- endif -%}
+  <!-- content -->
+  {{ content }}
 
   <!-- footer -->
-  <footer class="my-5">
-    <div class="container d-flex flex-wrap justify-content-between py-3 border-top">
-      <div class="col-md-4 d-flex flex-column justify-content-start">
-        <a href="/about/">About</a>
-        <a href="/contact-us/">Contact Us</a>
-      </div>
-      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li class="ms-3">
-          <a href="#">
-            <i class="fa-brands fa-facebook"></i>
-          </a>
-        </li>
-        <li class="ms-3">
-          <a href="#">
-            <i class="fa-brands fa-twitter"></i>
-          </a>
-        </li>
-        <li class="ms-3">
-          <a href="#">
-            <i class="fa-brands fa-github"></i>
-          </a>
-        </li>
-        <li class="ms-3">
-          <a href="/feed.xml">
-            <i class="fa-solid fa-rss"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="container my-4">
-      <div class="text-center">
-        <div class="mb-1 text-muted">© 2022 Upper Nehalem Flood</div>
-        <div class="text-muted">Made with <i class="fa-solid fa-heart"></i> and <i class="fa-solid fa-mug-saucer"></i>
-          in Vernonia, Oregon</div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- jquery -->
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"
-    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-
-  <!-- xml -->
-  <script src="https://cdn.jsdelivr.net/npm/xml-js@1.6.11/dist/xml-js.min.js"
-    integrity="sha256-UBmfOEzHAUdqZzVRQwUVeGvLSWTXgNkxZkA/SbQTSfU=" crossorigin="anonymous"></script>
-
-  <!-- luxon -->
-  <script src="https://cdn.jsdelivr.net/npm/luxon@2.4.0/build/global/luxon.min.js"
-    integrity="sha256-DIsAGD2EF8Qq2PCH9yzX/yt9FliJfWf+aGcdgR6tKwo=" crossorigin="anonymous"></script>
-
-  <!-- alert marquee -->
-  <script src="https://cdn.jsdelivr.net/npm/jquery.marquee@1.6.0/jquery.marquee.min.js"
-    integrity="sha256-/q3iOkf2BB5tEAiIVkLderfMTxLZSwxxkcnPjKVd+X0=" crossorigin="anonymous"></script>
-  <script src="/js/alert-marquee.js"></script>
-
-  <!-- page lead parallax -->
-  {%- if page.permalink == "/" -%}
-  <script src="https://cdn.jsdelivr.net/npm/jquery-parallax.js@1.5.0/parallax.min.js"
-    integrity="sha256-cNb9ArVGKhXkedowZK9xRxCpr6qqck5JvCAsuMzJlPw=" crossorigin="anonymous"></script>
+  {%- if page.footer != false -%}
+  {%- include footer.html -%}
   {%- endif -%}
 
-  <!-- bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-    crossorigin="anonymous"></script>
-
-  <!-- menu -->
-  {%- if page.menu == true -%}
-  <script src="https://cdn.jsdelivr.net/npm/put-selector@0.3.6/put.js"
-    integrity="sha256-+XQ6MA5ZO3kNy7aDkL4nQDMLl+/pgZdOFl0xICIIdwo=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js"
-    integrity="sha256-0WMZ9PF4b2hTF66Eglv/9H5Vwk6lnOG4AbmCJxo96WQ=" crossorigin="anonymous"></script>
-  <script src="/js/menu.js"></script>
+  <!-- alert modal -->
+  {%- if page.alert_modal != false -%}
+  {%- include alert-modal.html -%}
   {%- endif -%}
 
-  <!-- flood -->
-  {%- if page.permalink == "/flood/" -%}
-  <script src="/js/flood.js"></script>
-  {%- endif -%}
-
+  <!-- scripts -->
+  {%- include scripts.html -%}
 </body>
 
 </html>

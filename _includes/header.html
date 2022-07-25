@@ -1,0 +1,17 @@
+<header class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a href="/" class="navbar-brand">Upper Nehalem Flood</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#headerNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="headerNavbar">
+      <ul class="navbar-nav ms-md-auto">
+        {%- for link in site.data.site.links -%}
+        <li class="nav-item">
+          <a class="nav-link{% if page.url == link.permalink %} active{% endif %}" href="{{ link.permalink }}">{{ link.title }}</a>
+        </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</header>
