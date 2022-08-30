@@ -3,13 +3,13 @@ links:
     description: Protect yourself, family and property from flood events.
     permalink: /be-prepared/
 
-  - title: River and Weather
-    description: River gauges, flood and weather resources.
-    permalink: /river-and-weather/
-
   - title: News
     description: News and updates from Upper Nehalem Flood.
     permalink: /news/
+
+  - title: River and Weather
+    description: River gauges, flood and weather resources.
+    permalink: /river-and-weather/
 
   - title: Map
     description: Upper Nehalem interactive flood map.
