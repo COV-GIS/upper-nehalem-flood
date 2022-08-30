@@ -7,7 +7,7 @@
     .forEach(ele => {
       const text = ele.textContent;
 
-      const id = text.toLowerCase().replace(' ', '-');
+      const id = text.toLowerCase().replaceAll(' ', '-');
 
       ele.setAttribute('id', id);
 
