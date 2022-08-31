@@ -1,6 +1,6 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: github
+  repo: UpperNehalemFlood/upper-nehalem-flood
 
 site_url: https://regal-quokka-55d1b3.netlify.app
 

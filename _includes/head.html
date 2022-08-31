@@ -9,4 +9,7 @@
   <link rel="stylesheet" href="https://js.arcgis.com/4.23/esri/themes/light/main.css">
   {%- endif -%}
   <link rel="stylesheet" href="/css/main.css">
+  {%- if page.url == '/' -%}
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  {%- endif -%}
 </head>
