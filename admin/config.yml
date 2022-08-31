@@ -1,0 +1,27 @@
+backend:
+  name: git-gateway
+  branch: main
+
+site_url: https://regal-quokka-55d1b3.netlify.app
+
+logo_url: https://regal-quokka-55d1b3.netlify.app/images/social-card.jpg
+
+publish_mode: editorial_workflow
+
+media_folder: "images/uploads" # Media files will be stored in the repo under images/uploads
+public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+  - name: "news" # Used in routes, e.g., /admin/collections/blog
+    label: "News" # Used in the UI
+    folder: "_posts/news/"
+    path: "{{year}}/{{month}}/{{slug}}"
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
+      - {label: "Category", name: "category", widget: "hidden", default: "news"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Image", name: "image", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
