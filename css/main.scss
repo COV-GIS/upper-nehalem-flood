@@ -223,11 +223,18 @@ footer {
 // page - post
 /////////////////////////////////////////////////////////
 .page-post {
+  .post-lead {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+  }
+
   .post-share {
     display: flex;
     flex-flow: row;
     gap: 1rem;
     font-size: 1.5rem;
+    padding-right: 2rem;
   }
 
   .fa-facebook {
